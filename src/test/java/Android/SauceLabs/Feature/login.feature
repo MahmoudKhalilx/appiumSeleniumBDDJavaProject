@@ -10,9 +10,26 @@ Feature: Login swag labs mobile app Feature
 
 
 
-  Scenario: Successful login with valid credentials
+  Scenario Outline: Successful login with valid credentials
     Given I am on the login page
-    When I enter username "standard_user"
-    And I enter password "secret_sauce"
+    When I enter username "<UserName>"
+    And I enter password "<Password>"
     When I tap on the login button
     Then I should be logged in successfully
+
+    Examples:
+      |UserName|Password|
+    |standard_user|secret_sauce|
+
+
+  Scenario Outline: Successful login with invalid credentials
+    Given I am on the login page
+    When I enter username "<UserName>"
+    And I enter password "<Password>"
+    When I tap on the login button
+    Then i Have To Get Error Message "<Message>"
+
+    Examples:
+      |UserName|Password|Message|
+      |standard_user|secret_sauce|
+      |standard_user|secret_saucedd|

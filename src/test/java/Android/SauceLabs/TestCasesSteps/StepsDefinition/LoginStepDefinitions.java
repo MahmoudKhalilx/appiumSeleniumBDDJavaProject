@@ -48,8 +48,8 @@ Assert.assertEquals(Actual,"PRODUCTS");
 
     @Then("i Have To Get Error Message {string}")
     public void iHaveToGetErrorMessage(String Expected) {
-        String Actual =loginScreen.AssertProducts.getText();
-        Assert.assertEquals(Actual, Expected,"true");
+        String Actual = loginScreen.LoginErrorMessageAssert();
+        Assert.assertEquals(Actual, Expected,"true Error Message");
 
     }
 }

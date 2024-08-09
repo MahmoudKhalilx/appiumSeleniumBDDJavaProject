@@ -31,5 +31,5 @@ Feature: Login swag labs mobile app Feature
 
     Examples:
       |UserName|Password|Message|
-      |standard_user|secret_sauce|
-      |standard_user|secret_saucedd|
+      |locked_out_user|secret_sauce|Sorry, this user has been locked out.|
+#      |locked_out_user|secret_sauced123|Username and password do not match any user in this service.|

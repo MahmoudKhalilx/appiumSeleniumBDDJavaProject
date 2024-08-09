@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/java/Android/SauceLabs/Feature",
         glue = {"Android.SauceLabs.TestCasesSteps.StepsDefinition","Android.SauceLabs.hooks"},
-        plugin = {"pretty", "html:target/report/cucumber"}
+        plugin = {"pretty","html:target/report/cucumber.html"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

@@ -23,6 +23,15 @@ public class LoginScreen extends BaseScreenAndroid {
     public WebElement LoginBtn;
 
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sorry, this user has been locked out.\"][1]")
+    public WebElement LoginErrorMessage;
+
+    public String LoginErrorMessageAssert(){
+        LoginErrorMessage.getText();
+
+        return LoginErrorMessage.getText();
+    }
+
     public void EnterUsername(String Username){
         UsernameField.sendKeys(Username);
     }

@@ -1,25 +1,27 @@
 package Android.SauceLabs.TestCasesSteps.StepsDefinition;
 import Android.SauceLabs.Screens.android.SauceLabs.LoginScreen;
+import Android.SauceLabs.androidSetUp.BaseTestAndroid;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import java.net.MalformedURLException;
+
 import static Android.SauceLabs.androidSetUp.BaseTestAndroid.driver;
 
-public class LoginStepDefinitions {
+public class LoginStepDefinitions  extends BaseTestAndroid {
 
     private LoginScreen loginScreen;
 
     public LoginStepDefinitions() {
-        // Assume you have a way to get the driver, perhaps from a context or dependency injection
         this.loginScreen = new LoginScreen(driver);
     }
 
     @Given("I am on the login page")
-    public void iAmOnTheLoginPage() {
-
+    public void iAmOnTheLoginPage() throws MalformedURLException {
+  Assert.assertTrue(loginScreen.assertUsernameAndPass(),"UsernameAndPass is enabled");
     }
 
     @When("I enter username {string}")
@@ -32,9 +34,15 @@ public class LoginStepDefinitions {
         loginScreen.EnterPassword(password);
     }
 
+    @When("I tap on the login button")
+    public void i_tap_on_the_login_button() {
+       loginScreen.LoginBtn();
+    }
+
     @Then("I should be logged in successfully")
     public void iShouldBeLoggedInSuccessfully() {
         String Actual =loginScreen.AssertProducts.getText();
 Assert.assertEquals(Actual,"PRODUCTS");
+
     }
 }

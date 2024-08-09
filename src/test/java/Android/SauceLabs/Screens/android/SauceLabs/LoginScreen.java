@@ -42,5 +42,11 @@ public class LoginScreen extends BaseScreenAndroid {
         AssertProducts.getText();
 
     }
+    public boolean assertUsernameAndPass(){
+        UsernameField.isDisplayed();
+
+        return true;
+    }
+
 }
 

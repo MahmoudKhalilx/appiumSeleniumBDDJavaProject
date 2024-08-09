@@ -18,7 +18,7 @@ public class BaseTestAndroid {
     public AppiumDriverLocalService service;
     EmulatorManager emulatorManager=new EmulatorManager();
 
-    @BeforeTest
+    //@BeforeTest
     public void StartAppium() throws MalformedURLException {
         //StartDevice
         //EmulatorManager emulatorManager=new EmulatorManager();
@@ -30,7 +30,7 @@ public class BaseTestAndroid {
         service.start();
     }
 
-    @BeforeClass
+    //@BeforeClass
     public void startDriver() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options()
                 //  .setDeviceName(DeviceName)
@@ -52,14 +52,14 @@ public class BaseTestAndroid {
     }
 
 
-    @AfterClass
+   // @AfterClass
     public void stopDriver(){
         if (driver != null) {
             driver.quit();
 
         }
     }
-    @AfterTest
+   // @AfterTest
     public void stopService(){
 
         if (service != null) {

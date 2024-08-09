@@ -14,4 +14,5 @@ Feature: Login swag labs mobile app Feature
     Given I am on the login page
     When I enter username "standard_user"
     And I enter password "secret_sauce"
+    When I tap on the login button
     Then I should be logged in successfully
